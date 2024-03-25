@@ -1,11 +1,16 @@
-body {
-    background-color: #819595;
-}
+/*body {*/
+/*    background-color: #819595;*/
+/*}*/
 
 #products-container {
     width: 90%;
     /*background-color: #2F1000;*/
     margin: 20px auto 0 auto;
+}
+
+.product-links {
+    color: black;
+    text-decoration: none;
 }
 
 .product-div {

@@ -5,6 +5,10 @@
     font-family: "Segoe UI", system-ui, sans-serif;
 }
 
+body {
+    background-color: #819595;
+}
+
 /*a {*/
 /*    text-decoration: none;*/
 /*}*/

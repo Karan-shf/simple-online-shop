@@ -15,24 +15,28 @@
 
         {% for product in product_list %}
 
-        	<div class="product-div">
+            <a class="product-links" href="{% url 'product-info' product_slug=product.slug %}">
 
-{#                <scrypt>console.log("hello")</scrypt>#}
+                <div class="product-div">
 
-                <img src="{{ product.image.url }}" alt="{{ product.slug }} image">
+{#                    <scrypt>console.log("hello")</scrypt>#}
 
-                <div class="product-info">
-                    <h3 class="product-content">{{ product.title }}</h3>
-                    <p class="product-content">category: {{ product.category }}</p>
-                    <p class="product-content">price: {{ product.price }}$</p>
-                    <p class="product-content">rating: {{ product.rating }}</p>
+                    <img src="{{ product.image.url }}" alt="{{ product.slug }} image">
+
+                    <div class="product-info">
+                        <h3 class="product-content">{{ product.title }}</h3>
+                        <p class="product-content">category: {{ product.category }}</p>
+                        <p class="product-content">price: {{ product.price }}$</p>
+                        <p class="product-content">rating: {{ product.rating }}</p>
+                    </div>
+
+                    {% if not product.is_active %}
+                        <h2>currently not available</h2>
+                    {% endif %}
+
                 </div>
 
-                {% if not product.is_active %}
-                	<h2>currently not available</h2>
-                {% endif %}
-
-            </div>
+            </a>
 
         {% endfor %}
 

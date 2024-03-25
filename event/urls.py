@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.products_main,name='Products'),
     path('all-products',views.all_products,name='product-list'),
+    path('<slug:product_slug>',views.product_info,name='product-info')
 ]

@@ -19,7 +19,7 @@
 
             <div class="top-product-div">
 
-                <a href="#">
+                <a href="{% url 'product-info' product_slug=top_product.slug %}">
                     <img src="{{ top_product.image.url }}" alt="{{ top_product.slug }} image">
                     <h3>{{ top_product.title }}</h3>
                     <p>number of sales: {{ top_product.sale_count }}</p>

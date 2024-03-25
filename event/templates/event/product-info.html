@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}
+    {{ product.title }}
+{% endblock %}
+
+{% block header_references %}
+    <link rel="stylesheet" href="{% static 'event/product-info.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="product-info-div">
+        <img id="product-image" src="{{ product.image.url }}" alt="{{ product.title }} image">
+        <h1 id="product-title">{{ product.title }}</h1>
+        <table id="info-table">
+            <tr>
+                <th>category</th>
+                <th>price</th>
+                <th>rating</th>
+                <th>numbers in stock</th>
+                <th>is available</th>
+                <th>number of sales</th>
+            </tr>
+            <tr>
+                <td>{{ product.category }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.rating }}</td>
+                <td>{{ product.numbers }}</td>
+                <td>
+                    {% if product.is_active %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
+                <td>{{ product.sale_count }}</td>
+            </tr>
+        </table>
+        <a id="back-button" href="{% url 'product-list' %}">go back</a>
+    </div>
+{% endblock %}

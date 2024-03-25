@@ -17,3 +17,10 @@ def all_products(request):
         'product_list' : product_list
     }
     return render(request,'event/product-list.html',context)
+
+def product_info(request,product_slug):
+    selected_product = models.Product.objects.get(slug=product_slug)
+    context = {
+        'product' : selected_product
+    }
+    return render(request,'event/product-info.html',context)
