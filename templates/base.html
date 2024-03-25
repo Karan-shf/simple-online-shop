@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    {% block header_references %}
+    	
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <a id="homepage-link" href="{% url 'Home-Page' %}">Home Page</a>
+        <div>
+            <h1>jl_bing online shop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a class="nav-links" href="{% url 'Products' %}">products</a></li>
+                <li><a class="nav-links" href="#">about us</a></li>
+                <li><a class="nav-links" href="#">contact</a></li>
+                <li><a class="nav-links" href="#">numbers</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+	
+    {% endblock %}
+    {% block footer_references %}
+	
+    {% endblock %}
+</body>
+</html>

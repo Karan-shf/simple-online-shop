@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Products
+{% endblock %}
+
+{% block header_references %}
+    <link rel="stylesheet" href="{% static 'event/product-main-page.css' %}">
+{% endblock %}
+
+{% block content %}
+
+	<h2>BEST SELLING PRODUCTS:</h2>
+
+    <div id="top-products-container">
+
+        {% for top_product in top_products %}
+
+            <div class="top-product-div">
+
+                <a href="#">
+                    <img src="{{ top_product.image.url }}" alt="{{ top_product.slug }} image">
+                    <h3>{{ top_product.title }}</h3>
+                    <p>number of sales: {{ top_product.sale_count }}</p>
+                    <p>price: {{ top_product.price }}$</p>
+                </a>
+
+            </div>
+
+        {% endfor %}
+
+        <a id="see-all-link" href="{% url 'product-list' %}">see all products</a>
+
+    </div>
+
+
+{% endblock %}

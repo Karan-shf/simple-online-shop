@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+	All Products
+{% endblock %}
+
+{% block header_references %}
+    <link rel="stylesheet" href="{% static 'event/product-list.css' %}">
+{% endblock %}
+
+{% block content %}
+
+	<div id="products-container">
+
+        {% for product in product_list %}
+
+        	<div class="product-div">
+
+{#                <scrypt>console.log("hello")</scrypt>#}
+
+                <img src="{{ product.image.url }}" alt="{{ product.slug }} image">
+
+                <div class="product-info">
+                    <h3 class="product-content">{{ product.title }}</h3>
+                    <p class="product-content">category: {{ product.category }}</p>
+                    <p class="product-content">price: {{ product.price }}$</p>
+                    <p class="product-content">rating: {{ product.rating }}</p>
+                </div>
+
+                {% if not product.is_active %}
+                	<h2>currently not available</h2>
+                {% endif %}
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
